@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 class Animal {
   static alive = [];
@@ -24,7 +24,9 @@ class Carnivore extends Animal {
     if (herbivore instanceof Herbivore && !herbivore.hidden) {
       herbivore.health -= 50;
 
-      Animal.alive = Animal.alive.filter((item) => item !== herbivore);
+      if (herbivore.health <= 0) {
+        Animal.alive = Animal.alive.filter((item) => item !== herbivore);
+      }
     }
   }
 }
